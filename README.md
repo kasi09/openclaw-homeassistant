@@ -73,6 +73,13 @@ asyncio.run(main())
 | `call_service` | `domain`, `service`, `entity_id?`, `data?` | Call a HA service (e.g. turn on light, activate scene) |
 | `get_history` | `entity_id`, `start?`, `end?` | Get state history for an entity |
 | `get_config` | - | Get Home Assistant configuration |
+| `get_entities_by_domain` | `domain` | List entities filtered by domain (e.g. "light", "sensor") |
+| `fire_event` | `event_type`, `event_data?` | Fire an event on the HA event bus |
+| `get_logbook` | `entity?`, `start?`, `end?` | Get logbook entries |
+| `render_template` | `template` | Render a Jinja2 template and return the result |
+| `get_automations` | `service?`, `entity_id?` | List automations or trigger/enable/disable them |
+| `device_summary` | - | Human-readable summary of all devices grouped by domain |
+| `health_check` | - | Check Home Assistant reachability and version |
 
 ### Examples
 
@@ -137,7 +144,7 @@ openclaw-homeassistant/
 │   └── skill.py             # HomeAssistantSkill
 ├── tests/
 │   ├── conftest.py
-│   └── test_skill.py        # 24 tests, all HTTP mocked
+│   └── test_skill.py        # 52 tests, all HTTP mocked
 ├── .github/workflows/
 │   └── tests.yml            # CI: Python 3.9-3.12
 ├── pyproject.toml
